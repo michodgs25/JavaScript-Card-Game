@@ -18,6 +18,22 @@ export default class Deck {
     constructor(cards = FreshDeck()) {
         this.cards = cards
     }
+
+    get numberOfCards() {
+        return this.cards.length
+    }
+
+    //For loop to shuffle through all current cards(oldvalue)
+    //return shuffled cards(newIndex)
+    //provide a random shuffle after each game
+    shuffle() {
+        for (let i = this.numberOfCards - i; i > 0; i--) {
+            const newIndex = Math.floor(Math.random() * (i + 1))
+            const oldValue = this.cards[newIndex]
+            this.cards[newIndex] = this.cards[i]
+            this.cards[i] = oldValue
+        }
+    }
 }
 
 class Card {
