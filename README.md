@@ -3,8 +3,7 @@
 <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/best-card-games-1593784219.jpg?crop=1.00xw:0.752xh;0,0.132xh&resize=1200:*" target="_blank" rel="noopener" alt="Ace card">
 </div>
 
-# Project Overview
-
+# Project purpose
 __Card Game__
 The purpose of this project is to create a fully function card game using JavaScript.
 
