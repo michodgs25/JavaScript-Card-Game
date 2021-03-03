@@ -23,6 +23,14 @@ export default class Deck {
         return this.cards.length
     }
 
+    pop() {
+        return this.cards.shift()
+    }
+
+    push() {
+        this.cards.push(card)
+    }
+
     //For loop to shuffle through all current cards(oldvalue)
     //return shuffled cards(newIndex)
     //provide a random shuffle after each game

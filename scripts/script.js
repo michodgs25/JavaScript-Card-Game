@@ -9,6 +9,14 @@ const text = document.querySelector('.text')
 
 let playerDeck, computerDeck
 
+document.addEventListener('click', () => ) {
+    if (inRound) {
+        cleanBeforeRound()
+    } else {
+        flipCards()
+    }
+})
+
 startGame()
 function startGame() {
     const deck = new Deck()
@@ -17,14 +25,28 @@ function startGame() {
     const deckMidpoint = Math.cell(deck.numberOfCards / 2)
     playerDeck = new Deck(deck.cards.slice(0, deckMidpoint))
     computerDeck = new Deck(deck.cards.slice(deckMidpoint, deck.numberOfCards))
+    inRound = false
 
     cleanBeforeRound()
 }
 
 function cleanBeforeRound() {
+    inRound = false
     computerCardSlot.innerHTML = ''
     playerCardSlot.innerHTML = ''
     text.innerText = ''
+
+    updateDeckCount()
+}
+
+function flipCards() {
+    inRound = true
+
+    const playerCard = playerDeck.pop()
+    const computerCard = computerDeck.pop()
+
+    playerCardSlot.appendChild(playerCard.getHtml())
+    computerCardSlot.appendChild(computerCard.getHtml())
 
     updateDeckCount()
 }
