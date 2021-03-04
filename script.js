@@ -10,23 +10,22 @@ const CARD_VALUE_MAP = {
     "8": 8,
     "9": 9,
     "10": 10,
-    "J": 11,
-    "K": 12,
-    "Q": 13,
-    "A": 14,
+    J: 11,
+    Q: 12,
+    K: 13,
+    A: 14
 }
 
-const computerCardSlot = document.querySelector('.computer-card-slot')
-const playerCardSlot = document.querySelector('.player-card-slot')
-const computerDeckElement = document.querySelector('.computer-deck')
-const playerDeckElement = document.querySelector('.player-deck')
-const text = document.querySelector('.text')
-
+const computerCardSlot = document.querySelector(".computer-card-slot")
+const playerCardSlot = document.querySelector(".player-card-slot")
+const computerDeckElement = document.querySelector(".computer-deck")
+const playerDeckElement = document.querySelector(".player-deck")
+const text = document.querySelector(".text")
 
 let playerDeck, computerDeck, inRound, stop
 
-document.addEventListener('click', () => {
-    if(stop) {
+document.addEventListener("click", () => {
+    if (stop) {
         startGame()
         return
     }
@@ -43,9 +42,9 @@ function startGame() {
     const deck = new Deck()
     deck.shuffle()
 
-    const deckMidpoint = Math.cell(deck.numberOfCards / 2)
+    const deckMidpoint = Math.ceil(deck.numberOfCards / 2)
     playerDeck = new Deck(deck.cards.slice(0, deckMidpoint))
-    computerDeck = new Deck([new Card("s", 2), new Card("s", 2)])
+    computerDeck = new Deck(deck.cards.slice(deckMidpoint, deck.numberOfCards))
     inRound = false
     stop = false
 
@@ -54,9 +53,9 @@ function startGame() {
 
 function cleanBeforeRound() {
     inRound = false
-    computerCardSlot.innerHTML = ''
-    playerCardSlot.innerHTML = ''
-    text.innerText = ''
+    computerCardSlot.innerHTML = ""
+    playerCardSlot.innerHTML = ""
+    text.innerText = ""
 
     updateDeckCount()
 }
@@ -67,38 +66,37 @@ function flipCards() {
     const playerCard = playerDeck.pop()
     const computerCard = computerDeck.pop()
 
-    playerCardSlot.appendChild(playerCard.getHtml())
-    computerCardSlot.appendChild(computerCard.getHtml())
+    playerCardSlot.appendChild(playerCard.getHTML())
+    computerCardSlot.appendChild(computerCard.getHTML())
 
     updateDeckCount()
 
     if (isRoundWinner(playerCard, computerCard)) {
-        text.innerHTML = "Win"
+        text.innerText = "Win"
         playerDeck.push(playerCard)
         playerDeck.push(computerCard)
-    } else if
-        (isRoundWinner(computerCard, playerCard)) {
-        text.innerHTML = "Lose"
+    } else if (isRoundWinner(computerCard, playerCard)) {
+        text.innerText = "Lose"
         computerDeck.push(playerCard)
         computerDeck.push(computerCard)
     } else {
-        text.innerHTML = "Draw"
+        text.innerText = "Draw"
         playerDeck.push(playerCard)
         computerDeck.push(computerCard)
     }
+
     if (isGameOver(playerDeck)) {
-        text.innerText = "You Lose"
+        text.innerText = "You Lose!!"
         stop = true
     } else if (isGameOver(computerDeck)) {
-        text.innerText = "You Win"
+        text.innerText = "You Win!!"
         stop = true
     }
 }
 
 function updateDeckCount() {
-    computerDeckElement.innertext = computerDeck.numberOfCards
-    playerDeckElement.innertext = playerDeck.numberOfCards
-
+    computerDeckElement.innerText = computerDeck.numberOfCards
+    playerDeckElement.innerText = playerDeck.numberOfCards
 }
 
 function isRoundWinner(cardOne, cardTwo) {
