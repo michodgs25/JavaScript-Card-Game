@@ -1,5 +1,7 @@
+// import elements created in deck.js
 import Deck from "./deck.js"
 
+// map card values into separate entities
 const CARD_VALUE_MAP = {
     "2": 2,
     "3": 3,
@@ -16,14 +18,17 @@ const CARD_VALUE_MAP = {
     A: 14
 }
 
+// create player& computer deck& slots plus text variables& attach classes
 const computerCardSlot = document.querySelector(".computer-card-slot")
 const playerCardSlot = document.querySelector(".player-card-slot")
 const computerDeckElement = document.querySelector(".computer-deck")
 const playerDeckElement = document.querySelector(".player-deck")
 const text = document.querySelector(".text")
 
+// create key variables used throughout the game
 let playerDeck, computerDeck, inRound, stop
 
+// when user clicks the screen, game begins& click again = new game
 document.addEventListener("click", () => {
     if (stop) {
         startGame()
@@ -37,40 +42,43 @@ document.addEventListener("click", () => {
     }
 })
 
+// create start game function, deck shuffles prior to each game
 startGame()
 function startGame() {
     const deck = new Deck()
     deck.shuffle()
 
+    // deck divides by two each round
     const deckMidpoint = Math.ceil(deck.numberOfCards / 2)
     playerDeck = new Deck(deck.cards.slice(0, deckMidpoint))
     computerDeck = new Deck(deck.cards.slice(deckMidpoint, deck.numberOfCards))
     inRound = false
     stop = false
-
+    // cards are placed back into the deck before each deck
     cleanBeforeRound()
 }
 
+// call clean before round function, return false when in round
 function cleanBeforeRound() {
     inRound = false
     computerCardSlot.innerHTML = ""
     playerCardSlot.innerHTML = ""
     text.innerText = ""
-
+    // return card count after each round
     updateDeckCount()
 }
-
+// create flip cards function, this only occurs in round
 function flipCards() {
     inRound = true
-
+    // remove each card after round ends
     const playerCard = playerDeck.pop()
     const computerCard = computerDeck.pop()
 
     playerCardSlot.appendChild(playerCard.getHTML())
     computerCardSlot.appendChild(computerCard.getHTML())
-
+    // update deck count
     updateDeckCount()
-
+    // Display text 'win', 'lose' or 'draw' returns cards to respective decks
     if (isRoundWinner(playerCard, computerCard)) {
         text.innerText = "Win"
         playerDeck.push(playerCard)
@@ -84,7 +92,7 @@ function flipCards() {
         playerDeck.push(playerCard)
         computerDeck.push(computerCard)
     }
-
+    // if player wins: 'You win', else 'You lose'
     if (isGameOver(playerDeck)) {
         text.innerText = "You Lose!!"
         stop = true
@@ -94,15 +102,18 @@ function flipCards() {
     }
 }
 
+// create update deck count function, keeps count of the cards amount
 function updateDeckCount() {
     computerDeckElement.innerText = computerDeck.numberOfCards
     playerDeckElement.innerText = playerDeck.numberOfCards
 }
 
+// function determines round winner by determining the value of both cards
 function isRoundWinner(cardOne, cardTwo) {
     return CARD_VALUE_MAP[cardOne.value] > CARD_VALUE_MAP[cardTwo.value]
 }
 
+// function ends game and returns all cards to the deck
 function isGameOver(deck) {
     return deck.numberOfCards === 0
 }

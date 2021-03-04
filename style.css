@@ -1,8 +1,10 @@
 *, *::after, *::before {
     box-sizing: border-box;
 }
-
-/*Main body content positioning*/
+/*Main body content*/
+body {
+    background: linear-gradient(to right, rgb(255, 255, 255), rgb(244, 252, 3));
+}
 .body {
     margin: 0;
     grid-template-columns: repeat(2, 4rem);
@@ -39,6 +41,9 @@
 
 /*Position text in between the two decks*/
 .text {
+    font-size: 3em;
+    font-weight: 800;
+    color: rgb(255, 0, 251);
     grid-column: span 2;
     display: flex;
     justify-content: center;
@@ -49,7 +54,7 @@
 /*cards before and after*/
 .card {
     position: relative;
-    height: 100%;
+    height: 4em;
     width: 100%;
     border: 1px solid rgb(0, 0, 0);
     border-radius: .5rem;
