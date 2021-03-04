@@ -11,10 +11,7 @@ The purpose of this project is to create a fully function card game using JavaSc
 * [Project purpose](#Project-Purpose)
      * [UX](#UX)
 * [Features](#Features)
-     * [issues-and-bugs](#issues-and-bugs)
-* [Technologies](#Technologies)
      * [Languages](#Languages)
-* [Testing](#Testing)
 * [Acknowledgements](#Acknowledgements)
      * [External-Media](#External-Media)
 
@@ -23,7 +20,7 @@ The purpose of this project is to create a fully function card game using JavaSc
 
 # Project purpose
 __Card Game__
-The purpose of this project is to create a fully function card game using JavaScript.
+The purpose of this project is to create a fully functioning card game using JavaScript.
 
 
 # Features
