@@ -20,28 +20,23 @@ The purpose of this project is to create a fully function card game using JavaSc
 
 -------------
 
-# Project purpose
 
-The purpose of this project is to learn HTML, CSS, JavaScript and other similar languages to gain a greater understanding of what makes a webpage pop.
+# Project purpose
+__Card Game__
+The purpose of this project is to create a fully function card game using JavaScript.
 
 
 # Features
 
+- This game is played by the user clicking anywhere on screen, there are two cards one for the player and the computer. 
 
-### Html-CSS
+- After each round, the game keeps count of the score in the two boxes above the cards.
 
-* *The homepage consists of navigation bar(or mobile if using mobile devices), see navigation feature for details in navigation feature.*
-   
--------
+- The text between the two cards, notifies the players, who won and lost or a draw.
 
-### CSS
+- After each game, the deck resets.
 
--------
-
-### JavaScript 
-
--------
-
+-----------------------
 
 ## Languages
 
@@ -53,23 +48,25 @@ The purpose of this project is to learn HTML, CSS, JavaScript and other similar 
 These technologies helped create, shape and test my code
 
 -------
-
-## Testing
-
-------
   
-
 ## Deployment
 
-#### Requirements 
+### Requirements 
 You will need the following tools& accounts installed on your system and an account with:
 
-An IDE such as Visual Studio, gitpod, Code, or like this project gitpod
+- An IDE such as Visual Studio, gitpod, Code, or like this project gitpod
+
+- Internet Connection
+
 ------
 
 ## Acknowledgements
 
-I would like to acknowledge Eduonix for providing insightful tutorials on how to implement code.
+I would like to acknowledge __Web Dev Simplifed__ for an excellent tutorial.
+
+Youtube Channel - https://www.youtube.com/channel/UCFbNIlppjAuEX4znoulh0Cw
+
+Source Code - https://github.com/WebDevSimplified/War-Card-Game
 
 -----
   
