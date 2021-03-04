@@ -3,7 +3,7 @@
 }
 /*Main body content*/
 body {
-    background: linear-gradient(to right, rgb(255, 255, 255), rgb(244, 252, 3));
+    background: gold;
 }
 .body {
     margin: 0;
@@ -13,6 +13,22 @@ body {
     cursor: pointer;
     justify-content: center;
     padding-top: 1rem;
+}
+/*end*/
+
+/*header and sub heading text*/
+h3, p {
+    padding-top: 1em;
+    font-size: 3em;
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+/*end*/
+
+/*push main content towards center of page*/
+.clear {
+    padding-top: 5em;
+    margin-top: 5em;
 }
 /*end*/
 
@@ -43,7 +59,7 @@ body {
 .text {
     font-size: 3em;
     font-weight: 800;
-    color: rgb(255, 0, 251);
+    color: rgb(255, 255, 255);
     grid-column: span 2;
     display: flex;
     justify-content: center;
@@ -57,6 +73,7 @@ body {
     height: 4em;
     width: 100%;
     border: 1px solid rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
     border-radius: .5rem;
     display: flex;
     justify-content: center;
