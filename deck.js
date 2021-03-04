@@ -1,4 +1,4 @@
-const SUITS = ["♠", "♥", "♦", "♣"]
+const SUITS = ["♠", "♣", "♥", "♦"]
 const VALUES = [
     "A",
     "2",
@@ -10,12 +10,13 @@ const VALUES = [
     "8",
     "9",
     "10",
-    "j",
-    "k",
-    "Q"]
+    "J",
+    "Q",
+    "K"
+]
 
 export default class Deck {
-    constructor(cards = FreshDeck()) {
+    constructor(cards = freshDeck()) {
         this.cards = cards
     }
 
@@ -27,15 +28,12 @@ export default class Deck {
         return this.cards.shift()
     }
 
-    push() {
+    push(card) {
         this.cards.push(card)
     }
 
-    //For loop to shuffle through all current cards(oldvalue)
-    //return shuffled cards(newIndex)
-    //provide a random shuffle after each game
     shuffle() {
-        for (let i = this.numberOfCards - i; i > 0; i--) {
+        for (let i = this.numberOfCards - 1; i > 0; i--) {
             const newIndex = Math.floor(Math.random() * (i + 1))
             const oldValue = this.cards[newIndex]
             this.cards[newIndex] = this.cards[i]
@@ -44,26 +42,26 @@ export default class Deck {
     }
 }
 
-export class Card {
+class Card {
     constructor(suit, value) {
         this.suit = suit
         this.value = value
     }
 
     get color() {
-        return this.suit === '♠' || this.suit === '♣' ? 'black' : 'red'
+        return this.suit === "♣" || this.suit === "♠" ? "black" : "red"
     }
 
     getHTML() {
-        const cardDiv = document.createElement('div')
-        cardDiv.innerHTML = this.suit
-        cardDiv.classList.add('card', this.color)
-        cardDiv.dataset.value = `$(this.value) $(this.suit)`
+        const cardDiv = document.createElement("div")
+        cardDiv.innerText = this.suit
+        cardDiv.classList.add("card", this.color)
+        cardDiv.dataset.value = `${this.value} ${this.suit}`
         return cardDiv
     }
 }
 
-function FreshDeck() {
+function freshDeck() {
     return SUITS.flatMap(suit => {
         return VALUES.map(value => {
             return new Card(suit, value)
