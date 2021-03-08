@@ -38,13 +38,8 @@ The purpose of this project is to create a fully functioning card game using Jav
 ## Languages
 
   - In this project I used *HTML5*, *CSS* and *JavaScript*.
-   
-
-## Technologies
-
-These technologies helped create, shape and test my code
-
--------
+  
+-----------------------
   
 ## Deployment
 
